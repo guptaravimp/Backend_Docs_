@@ -40,6 +40,6 @@ app.listen(port, () => {
 ```
 # 5 Now run this backend in Node.js
 ```
-node app.js
+node server.js
 ```
 see the port ......
