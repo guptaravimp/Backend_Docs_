@@ -17,14 +17,28 @@ cd backend-project
 ```
 npm init -y
 ```
-# 3- Create Index.js or say Server.js file to write our backend code 
-## entry point: (index.js)
-
-# 4- Install expree
+# 3- Installing expree
 ```
 $ npm install express
 ```
-# Now write this code in server.js 
+# 4- Installing nodemon
+Nodemon is a development tool that automatically restarts your Node.js application whenever it detects changes in the source files. Without nodemon, you'd need to manually stop and restart the server every time you make changes to your code.
+
+```
+npm install nodemon
+```
+# 5- Create Index.js or say Server.js file to write our backend code 
+## entry point: (index.js)
+
+# 6- Now adding code of nodemon in (script of package.json )
+### adding the server.js file to update on every changes with nodemon
+```
+ "scripts": {
+    "dev":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
+# Now write this code in server.js or index.js
 ```
 const express = require('express')
 const app = express()
@@ -40,6 +54,7 @@ app.listen(port, () => {
 ```
 # 5 Now run this backend in Node.js
 ```
-node server.js
+ // node server.js
+npm run dev
 ```
 see the port ......
