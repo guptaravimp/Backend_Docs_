@@ -48,6 +48,7 @@ app.get('/',(req,res)=>{
 res.sendFile('./dummy.html',{root:__dirname})
 })
 ```
-# 3 -> Now go to postman and send the request of http://localhost:3000/ using Get method
+### Now go to postman and send the request of http://localhost:3000/ using Get method
 ### Now you can see the reponse is the complete code of html and you can preview it 
+![Screenshot 2024-12-14 175427](https://github.com/user-attachments/assets/7faac63c-2d94-4cfa-ae38-46c2526c750e)
  
