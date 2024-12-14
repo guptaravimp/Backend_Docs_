@@ -57,4 +57,5 @@ app.listen(port, () => {
  // node server.js
 npm run dev
 ```
-see the port ......
+## see the port ......
+# Go to browser search localhost:3000
