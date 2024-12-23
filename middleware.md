@@ -37,5 +37,8 @@ app.get('/', (req, res) => {
 ## Now let send the body data from postman 
 ![Screenshot 2024-12-23 145355](https://github.com/user-attachments/assets/495df674-e973-4f58-b8cc-98390db9d704)
 ## Now go to console you can see the valid javascript data will consoled below 
+## 2 -> lets create our own  iddle ware of logging 
+req->logging->Authentation->validation->response 
+
 
 
