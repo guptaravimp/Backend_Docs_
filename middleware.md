@@ -39,6 +39,39 @@ app.get('/', (req, res) => {
 ## Now go to console you can see the valid javascript data will consoled below 
 ## 2 -> lets create our own  iddle ware of logging 
 req->logging->Authentation->validation->response 
+```
+
+app.use(express.json())
+/////middleware of logging , validation , authentation
+// req->logging->auth->validation->res  
+const loggingMiddleware=function (req,res,next){
+    console.log("Loging kar raha hu ");
+    next();
+}
+app.use(loggingMiddleware); //loading our middleware
+
+const auth=function (req,res,next){
+    console.log("authentation ho gaya ")
+    next();
+}
+app.use(auth);
+
+const validation =function (req,res,next){
+    console.log("validation ho gaya ")
+    next();
+}
+app.use(validation);
+
+app.get('/', (req, res) => {
+  console.log("Mai route Handler hu ")
+  console.log(req.body);  // that is calling body req that is in postman 
+  res.send('Hello World!')
+})
+```
+## Again send data from postman like this 
+![Screenshot 2024-12-23 145355](https://github.com/user-attachments/assets/495df674-e973-4f58-b8cc-98390db9d704)
+Now You can see the console --------
+![Screenshot 2024-12-23 151017](https://github.com/user-attachments/assets/f2205821-d4fc-454d-a513-3957758ad6ef)
 
 
 
