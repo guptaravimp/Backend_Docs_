@@ -35,7 +35,7 @@ const isStudent=function (req,res,next){
     }else{
         res.json({success:false,
         message:"Access denied,this route is only for student  "
-        })
+        });
     }
 }
 
@@ -67,64 +67,63 @@ router.get('/admin',auth,isAdmin,(req,res)=>{
 ```
 //ye file saare item specific routes ko store karegi 
 
-const express = require('express')
-const router = express.Router()
-/// middleware creation 
-router.use(express.json)
-const auth=function (req,res,next){
-    console.log(" I am ainside auth wala  middleware")
-    // tumhari shahayata ke liye dummy useer add kiya hu 
-    req.user={userId:1,role:"Student"}
-    if(req.user){
-        // if a valid user is there in req, then proceed to next middleware 
-        next();
-    }
-    else{
-        res.json()({
-            success:false,
-            message:"Not a  valid user"
-        })
-    }
-}
+const express = require('express');
+const router = express.Router();
 
+// Middleware
+router.use(express.json());
 
-const isStudent=function (req,res,next){
-    console.log(" I am inside student wala middleware")
-    if(req.user.role==='Student'){
+const auth = function (req, res, next) {
+    console.log("I am inside auth middleware");
+    // Dummy user added for testing
+    req.user = { userId: 1, role: "Student" };
+    if (req.user) {
         next();
-    }else{
-        res.json({success:false,
-        message:"Access denied,this route is only for student  "
-        })
-    }
-}
-
-const isAdmin=function(req,res,next){
-    console.log("I am inside admin wala middleware ")
-    if(req.user.role==='admin'){
-        next();
-    }else{
+    } else {
         res.json({
-            success:false,
-            message:"Not a valid user "
-        })
+            success: false,
+            message: "Not a valid user"
+        });
     }
-}
+};
 
+const isStudent = function (req, res, next) {
+    console.log("I am inside student middleware");
+    if (req.user.role === 'Student') {
+        next();
+    } else {
+        res.json({
+            success: false,
+            message: "Access denied, this route is only for students"
+        });
+    }
+};
 
-/// routes
-router.get('/Student',auth,isStudent,(req,res)=>{
-    console.log(" I am inside student router")
-    res.send("Got a student  request");
-})
-router.get('/admin',auth,isAdmin,(req,res)=>{
-    console.log("I am  inside admin routes")
-    res.send("Got a admin request");
-})
+const isAdmin = function (req, res, next) {
+    console.log("I am inside admin middleware");
+    if (req.user.role === 'admin') {
+        next();
+    } else {
+        res.json({
+            success: false,
+            message: "Access denied, this route is only for admins"
+        });
+    }
+};
 
+// Routes
+router.get('/student', auth, isStudent, (req, res) => {
+    console.log("I am inside student route");
+    res.send("Got a student request");
+});
 
+router.get('/admin', auth, isAdmin, (req, res) => {
+    console.log("I am inside admin route");
+    res.send("Got an admin request");
+});
 
-module.exports = router
+module.exports = router;
+
 ```
 # 2- Now let linked or mounting our routes with index.js 
 ```
