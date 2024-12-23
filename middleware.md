@@ -22,4 +22,20 @@ Middleware functions can perform the following tasks:
 ### (i)-> express.json() 
 it is used when we are dealing with json onject 
 it is used to convert this json into valid javascript object to use in our web application 
+like this 
+```
+// middleware inbuild express.json use to convert json data in valid hjavascript object
+app.use(express.json())
+
+app.get('/', (req, res) => {
+  console.log(req.body);
+  console.log("hello ")
+  res.send('Hello World!')
+})
+
+```
+## Now let send the body data from postman 
+![Screenshot 2024-12-23 145355](https://github.com/user-attachments/assets/495df674-e973-4f58-b8cc-98390db9d704)
+## Now go to console you can see the valid javascript data will consoled below 
+
 
