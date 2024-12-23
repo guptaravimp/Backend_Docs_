@@ -7,10 +7,11 @@ Middleware functions are functions that have access to the request object (req),
 Middleware functions can perform the following tasks:
 
 
-Execute any code.
+1. Execute any code.
+2. middleware are used to do validation , authentication , authorization and etc 
 
-Make changes to the request and the response objects.
+3. Make changes to the request and the response objects.
 
-End the request-response cycle.
+4 End the request-response cycle.
 
-Call the next middleware in the stack.
+5 Call the next middleware in the stack.
