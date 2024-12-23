@@ -15,3 +15,11 @@ Middleware functions can perform the following tasks:
 4 End the request-response cycle.
 
 5 Call the next middleware in the stack.
+# 1. No first setup backend project using below documentation 
+### https://github.com/guptaravimp/Backend_Docs_/blob/main/Setup_Into.md
+# 2 Now we are going to write middleware 
+## 1- inbuilt middleware 
+### (i)-> express.json() 
+it is used when we are dealing with json onject 
+it is used to convert this json into valid javascript object to use in our web application 
+
