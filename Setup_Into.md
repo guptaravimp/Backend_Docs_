@@ -19,7 +19,7 @@ npm init -y
 ```
 # 3- Installing expree
 ```
-$ npm install express
+ npm install express
 ```
 # 4- Installing nodemon
 Nodemon is a development tool that automatically restarts your Node.js application whenever it detects changes in the source files. Without nodemon, you'd need to manually stop and restart the server every time you make changes to your code.
