@@ -41,13 +41,22 @@ app.get('/', (req, res) => {
 req->logging->Authentation->validation->response 
 ```
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+
+/// sue middleware inbuild express.json use to convert json data in valid hjavascript object 
+
 app.use(express.json())
 /////middleware of logging , validation , authentation
 // req->logging->auth->validation->res  
+/// creating a middleware 
 const loggingMiddleware=function (req,res,next){
     console.log("Loging kar raha hu ");
     next();
 }
+/// loading middleware into a application 
 app.use(loggingMiddleware); //loading our middleware
 
 const auth=function (req,res,next){
@@ -66,6 +75,12 @@ app.get('/', (req, res) => {
   console.log("Mai route Handler hu ")
   console.log(req.body);  // that is calling body req that is in postman 
   res.send('Hello World!')
+})
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 })
 ```
 ## Again send data from postman like this 
