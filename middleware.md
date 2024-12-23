@@ -70,7 +70,9 @@ app.get('/', (req, res) => {
 ```
 ## Again send data from postman like this 
 ![Screenshot 2024-12-23 145355](https://github.com/user-attachments/assets/495df674-e973-4f58-b8cc-98390db9d704)
+
 Now You can see the console --------
+
 ![Screenshot 2024-12-23 151017](https://github.com/user-attachments/assets/f2205821-d4fc-454d-a513-3957758ad6ef)
 
 
