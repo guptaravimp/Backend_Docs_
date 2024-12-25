@@ -54,6 +54,10 @@ mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
 
 ![image](https://github.com/user-attachments/assets/39187b22-bf91-421e-a49a-34ef6b1cc73b)
 
+# 7-> after this You can refer to 
+
+https://github.com/guptaravimp/Backend_Docs_/blob/main/mongodb_setup.md
+
 
 
 
