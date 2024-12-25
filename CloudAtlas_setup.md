@@ -1,4 +1,4 @@
-# Now we are going to do work on MongoDB on cloud based 
+# Now we are going to do work on MongoDB Atlas that  is cloud based database 
 ### Now we not store our data in local host our system we are going to use the Mongodb Atlas that is cloud based database service provided by Mongodb 
 # 1-> Go and Link 
 https://cloud.mongodb.com/v2/676c4dba74ee353776c6b61c#/overview
@@ -54,9 +54,34 @@ mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
 
 ![image](https://github.com/user-attachments/assets/39187b22-bf91-421e-a49a-34ef6b1cc73b)
 
-# 7-> after this You can refer to 
+# 7-> Now let insert Document inside this databsae
 
-https://github.com/guptaravimp/Backend_Docs_/blob/main/mongodb_setup.md
+```
+{
+  "_id": {
+    "$oid": "676c56fe04a711218546c673"
+  },
+  "name":"Scorpio",
+  "Price":2500000
+}
+```
+## Like this 
+
+![Screenshot 2024-12-26 003521](https://github.com/user-attachments/assets/1e2f2e3c-03a7-4050-83fb-ce919015af16)
+
+# 8-> click on insert and see 
+## the data are inserted in our Mongodb compass 
+## IMP-> Actually this data is also added in our cloud mongodb atlas because we connected that server that connectection 
+
+# 9-> go to mongodb atlas and click on browse collections 
+
+![Screenshot 2024-12-26 004545](https://github.com/user-attachments/assets/80625f42-decb-485a-9eaf-49b0776cdc7d)
+
+## see the item and car collection also added in our cloud database 
+
+![Screenshot 2024-12-26 004647](https://github.com/user-attachments/assets/43a32ccf-6115-4dc8-90c0-7ae701fe463c)
+
+## and see inserted document is also present here 
 
 
 
