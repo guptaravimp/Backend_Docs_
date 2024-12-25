@@ -116,6 +116,24 @@ mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
 
 
 ## here You can also update delete and do all operation etc 
+# 13-> lets change something and
+### change (Scorpio-> Ravi Scorpio)
+
+![Screenshot 2024-12-26 012428](https://github.com/user-attachments/assets/3dab3a74-9f32-47fc-afdc-c8b81745f234)
+
+## see that it will refelet all the place in our Mongodb compass and mongodb atlas also 
+## In Mondodb complass refresh 
+
+![Screenshot 2024-12-26 012531](https://github.com/user-attachments/assets/019a4c97-63ec-4322-96f6-18f63d4a70bc)
+
+## In Mongodb Atlas go and referesh 
+
+![Screenshot 2024-12-26 012633](https://github.com/user-attachments/assets/3ad7ed55-a44a-43ba-a055-29795f1c5538)
+
+
+
+# Thank You 
+
 
 
 
