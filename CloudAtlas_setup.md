@@ -1,4 +1,4 @@
-# Now we are going to do work on MongoDB Atlas that  is cloud based database 
+![image](https://github.com/user-attachments/assets/9c63a251-225f-43b0-b70c-6d608454ad41)# Now we are going to do work on MongoDB Atlas that  is cloud based database 
 ### Now we not store our data in local host our system we are going to use the Mongodb Atlas that is cloud based database service provided by Mongodb 
 # 1-> Go and Link 
 https://cloud.mongodb.com/v2/676c4dba74ee353776c6b61c#/overview
@@ -82,6 +82,33 @@ mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
 ![Screenshot 2024-12-26 004647](https://github.com/user-attachments/assets/43a32ccf-6115-4dc8-90c0-7ae701fe463c)
 
 ## and see inserted document is also present here 
+
+# IMPPPP_____ 10 - Now we can see our all database inside vs code also 
+## Go to vs code and search extension (Mongodb for vs code) and install this 
+
+![Screenshot 2024-12-26 005333](https://github.com/user-attachments/assets/b688f7b0-7b73-48fc-9e91-a1e046170149)
+
+## Now click Mongodb icon on left side below env
+
+![Screenshot 2024-12-26 005442](https://github.com/user-attachments/assets/9779b36c-b840-47ba-98cb-22374407f8e1)
+
+##  after clicking looks like this 
+
+![Screenshot 2024-12-26 005643](https://github.com/user-attachments/assets/4a18c6ad-07f8-4c7f-9c48-32b6c48b315a)
+
+# 11-> Now click on connect 
+## and paste Your connection string that You replace with your password i.e
+```
+mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
+```
+## Now looks like this 
+![image](https://github.com/user-attachments/assets/f9fa11da-cfa2-4fad-89a4-6025043210a9)
+
+# 12-> press enter and You can see Your all database on this server
+## here You can also update delete and do all operation etc 
+
+
+
 
 
 
