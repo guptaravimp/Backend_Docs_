@@ -42,3 +42,12 @@ const connectDB = require('./db');
 //connect to database
 connectDB();
 ```
+## use bodyparser to parse the data 
+```
+//body parser
+app.use(express.json());
+```
+# 4- Now see the terminal database is connected now 
+
+![Screenshot 2024-12-28 123019](https://github.com/user-attachments/assets/37beeb6e-18cd-424e-8a9f-fecb048382f3)
+
