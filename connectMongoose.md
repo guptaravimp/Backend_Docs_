@@ -58,7 +58,8 @@ app.use(express.json());
 ```
 MONGODB_URI=mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
 ```
-## Now go to file where you use this url and change it to 
+## Now go to file where you use this url and change it to \
+## here db.js file
 ### replace url with
 ```
 process.env.MONGODB_URI
@@ -71,5 +72,27 @@ const dotenv=require('dotenv')
 dotenv.config();
 ```
 ## Now your data is secure 
+## Now you db.js looks like this 
+```
+const mongoose = require('mongoose');
+const dotenv=require('dotenv')
+
+// load env config 
+dotenv.config();
+
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+      });
+      console.log(`MongoDB Connected`);
+    } catch (error) {
+      console.error(error.message);
+      process.exit(1);
+    }
+  }
+  module.exports = connectDB;
+```
+
 
 
