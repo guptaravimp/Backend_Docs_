@@ -165,9 +165,9 @@ const UserModel = model("test", UserSchema)
 
 module.exports = UserModel
 ```
-# Now let create Routes folder to perform CRUD operation 
+# 7-> Now let create Routes folder to perform CRUD operation 
 ## first create a routes folder inside backend project 
-## inside this let create a file named as (app.js)
+## inside this let create a file named as (users.js)
 ## Now to perorm these operations first import the (UserModel.js)
 ## import express and router also
 ```
@@ -178,48 +178,76 @@ const User=require('../models/userModel')
 ## Now let first we fetch the and read the all user present in (Usermodel.js)
 
 ```
-const express=require('express')
-const router=express.Router();
-const User=require('../models/userModel')
+const express = require('express');
+const router = express.Router();
+const User = require('../models/userModel');
 
+// CRUD Operations
 
-// routes
-
-
-// Crud Operations
-
-
-//view/Read
-router.get('/user',async(req,res)=>{
-         try{
-            // fetching all the data of user in User 
-            const users=await User.find();
-            res.status(200).json(users);
-         }
-         catch(err){
-            res.status(500).json({
-                success:false,
-                message:err.message
-            })
-         }
-})
-
-
-///  create 
-router.post('/user',async(req,res)=>{
-    try{
-           const {name,age,weight}=req.body;
-           /// cretaing new user to save the data in db
-           const newuser=new User({name,age,weight})
-           // saving in User modle
-           await User.save(newuser)
-    }catch(err){
+// View/Read
+router.get('/user', async (req, res) => {
+    try {
+        // Fetching all user data
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (err) {
         res.status(500).json({
-            success:false,
-            message:err.message
-        })
+            success: false,
+            message: err.message,
+        });
     }
-})
+});
+
+// Create
+router.post('/user', async (req, res) => {
+    try {
+        const { name, age, weight } = req.body;
+        // Creating a new user instance
+        const newUser = new User({ name, age, weight });
+        // Saving the instance to the database
+        await newUser.save();
+        res.status(201).json({
+            success: true,
+            message: 'User created successfully',
+            data: newUser,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+
+module.exports = router;
+
 ```
+# 8-> Now let import router folder inside index.js
+```
+const user=require('./routes/users')
+app.use('api',user)
+```
+
+# 9-> now let post some data using postman 
+#  9.1-> Post method
+## go to postman and check api post mehtod request
+```
+http://localhost:3000/api/user
+```
+## Now see this data is successfully post 
+
+![Screenshot 2024-12-28 154728](https://github.com/user-attachments/assets/95f907a7-a8f4-4d4c-a767-7ec46c543233)
+
+# 10-> Now go to mongodb compass or mongodb atlas and you can see the data is also inserted into DB 
+## see this 
+## test named db is created and data is pushed into it 
+
+![Screenshot 2024-12-28 155300](https://github.com/user-attachments/assets/fee786d9-f2bf-44f0-81ed-e465862466ec)
+
+# 9.2-> see the get request also on this url-> http://localhost:3000/api/user  on postman 
+
+![Screenshot 2024-12-28 155425](https://github.com/user-attachments/assets/ccd362c8-b4a3-4831-aa06-a6ef63665ace)
+
+# 
 
 
