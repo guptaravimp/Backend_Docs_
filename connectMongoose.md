@@ -51,3 +51,25 @@ app.use(express.json());
 
 ![Screenshot 2024-12-28 123019](https://github.com/user-attachments/assets/37beeb6e-18cd-424e-8a9f-fecb048382f3)
 
+# 5-> Now to secure our data with .env file
+## to secure our some confidential data and information like api key , some password we use .env file inside our backend project 
+## create a file name .env
+#### let we secure our connection string inside .env
+```
+MONGODB_URI=mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
+```
+## Now go to file where you use this url and change it to 
+### replace url with
+```
+process.env.MONGODB_URI
+```
+## and import it and load dotenv config like this 
+```
+const dotenv=require('dotenv')
+
+// load env config 
+dotenv.config();
+```
+## Now your data is secure 
+
+
