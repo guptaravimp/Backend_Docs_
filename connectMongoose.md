@@ -238,7 +238,7 @@ http://localhost:3000/api/user
 
 ![Screenshot 2024-12-28 154728](https://github.com/user-attachments/assets/95f907a7-a8f4-4d4c-a767-7ec46c543233)
 
-# 10-> Now go to mongodb compass or mongodb atlas and you can see the data is also inserted into DB 
+## Now go to mongodb compass or mongodb atlas and you can see the data is also inserted into DB 
 ## see this 
 ## test named db is created and data is pushed into it 
 
@@ -248,6 +248,87 @@ http://localhost:3000/api/user
 
 ![Screenshot 2024-12-28 155425](https://github.com/user-attachments/assets/ccd362c8-b4a3-4831-aa06-a6ef63665ace)
 
-# 
+# 9.3 Now let update some detail using put method 
+## go to routes folder inside this go to (users.js) and add the put mehtod code 
+```
+const express = require('express');
+const router = express.Router();
+const User = require('../models/userModel');
+
+// CRUD Operations
+
+// View/Read
+router.get('/user', async (req, res) => {
+    try {
+        // Fetching all user data
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+
+// Create
+router.post('/user', async (req, res) => {
+    try {
+        const { name, age, weight } = req.body;
+        // Creating a new user instance
+        const newUser = new User({ name, age, weight });
+        // Saving the instance to the database
+        await newUser.save();
+        res.status(201).json({
+            success: true,
+            message: 'User created successfully',
+            data: newUser,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+// update
+router.put('/user/:id',async(req,res)=>{
+    const {id}=re.params;
+    const {name,age,weight}=req.body;
+    try{
+                 const updatedUser=User.findByIdAndUpdate(id,{name,age,weight})
+                 if(!updatedUser){
+                    res.json({
+                        messgae:"User Not Found"
+                    })
+                 }
+                 // but if updayed user successfully
+                 res.status(200).json({
+                    success:true,
+                    user:updatedUser
+                 })
+    }catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+})
+
+module.exports = router;
+
+```
+## Now let update the data of ravi Gupta and with the id (676fd08894c5b514241aceab)
+### so create the routes -> http://localhost:3000/api/user/676fd08894c5b514241aceab/
+## Now hit send in postman see this 
+
+![Screenshot 2024-12-28 161118](https://github.com/user-attachments/assets/4a009d1e-3951-4eff-aa1f-b4ba3edd3175)
+
+## Now go to atlas database and see that the ravi gupta is updated to akshat
+## see this 
+
+![Screenshot 2024-12-28 161309](https://github.com/user-attachments/assets/04dfefbb-cc3f-4b62-b9e2-c1eb511fe418)
+
+
 
 
