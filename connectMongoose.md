@@ -94,5 +94,78 @@ const connectDB = async () => {
   module.exports = connectDB;
 ```
 
+# 6-> Now lets create a models and schema to perform crud operation
+## first create a folder name as (models) and 
+### inside this create a file name as let (UserModel.js)
+### Import and define this inside Usermodel.js
+```
+const {
+  Schema,
+  model
+} = require("mongoose");
+
+```
+## Now let create a schema inside the model file named Usermodel.js
+
+```
+const UserSchema = new Schema({
+    name: {
+      type: String,
+      required: true,
+      maxlength: 50
+    },
+    age:{
+        type:Number,
+        required:true
+    },
+    weight:{
+        type:Number
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  });
+```
+
+## Now export this model
+```
+const UserModel = model("test", UserSchema)
+
+module.exports = UserModel
+```
+## See this complete code of Usermodel.js
+```
+const {
+    Schema,
+    model
+  } = require("mongoose");
+
+
+const UserSchema = new Schema({
+    name: {
+      type: String,
+      required: true,
+      maxlength: 50
+    },
+    age:{
+        type:Number,
+        required:true
+    },
+    weight:{
+        type:Number
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  });
+
+const UserModel = model("test", UserSchema)
+
+module.exports = UserModel
+```
+
+
 
 
