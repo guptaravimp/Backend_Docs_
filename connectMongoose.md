@@ -203,6 +203,23 @@ router.get('/user',async(req,res)=>{
             })
          }
 })
+
+
+///  create 
+router.post('/user',async(req,res)=>{
+    try{
+           const {name,age,weight}=req.body;
+           /// cretaing new user to save the data in db
+           const newuser=new User({name,age,weight})
+           // saving in User modle
+           await User.save(newuser)
+    }catch(err){
+        res.status(500).json({
+            success:false,
+            message:err.message
+        })
+    }
+})
 ```
 
 
