@@ -230,17 +230,17 @@ app.use('api',user)
 
 # 9-> now let post some data using postman 
 #  9.1-> Post method
-## go to postman and check api post mehtod request
+### go to postman and check api post mehtod request
 ```
 http://localhost:3000/api/user
 ```
-## Now see this data is successfully post 
+### Now see this data is successfully post 
 
 ![Screenshot 2024-12-28 154728](https://github.com/user-attachments/assets/95f907a7-a8f4-4d4c-a767-7ec46c543233)
 
-## Now go to mongodb compass or mongodb atlas and you can see the data is also inserted into DB 
-## see this 
-## test named db is created and data is pushed into it 
+### Now go to mongodb compass or mongodb atlas and you can see the data is also inserted into DB 
+### see this 
+### test named db is created and data is pushed into it 
 
 ![Screenshot 2024-12-28 155300](https://github.com/user-attachments/assets/fee786d9-f2bf-44f0-81ed-e465862466ec)
 
@@ -249,7 +249,7 @@ http://localhost:3000/api/user
 ![Screenshot 2024-12-28 155425](https://github.com/user-attachments/assets/ccd362c8-b4a3-4831-aa06-a6ef63665ace)
 
 # 9.3 Now let update some detail using put method 
-## go to routes folder inside this go to (users.js) and add the put mehtod code 
+### go to routes folder inside this go to (users.js) and add the put mehtod code 
 ```
 const express = require('express');
 const router = express.Router();
@@ -320,14 +320,126 @@ module.exports = router;
 ```
 ## Now let update the data of ravi Gupta and with the id (676fd08894c5b514241aceab)
 ### so create the routes -> http://localhost:3000/api/user/676fd08894c5b514241aceab/
-## Now hit send in postman see this 
+### Now hit send in postman see this 
 
 ![Screenshot 2024-12-28 161118](https://github.com/user-attachments/assets/4a009d1e-3951-4eff-aa1f-b4ba3edd3175)
 
-## Now go to atlas database and see that the ravi gupta is updated to akshat
-## see this 
+### Now go to atlas database and see that the ravi gupta is updated to akshat
+### see this 
 
 ![Screenshot 2024-12-28 161309](https://github.com/user-attachments/assets/04dfefbb-cc3f-4b62-b9e2-c1eb511fe418)
+
+## 9.4 -> Delete Method 
+### add the code of delete inside the routes folder in (users.js)
+```
+const express = require('express');
+const router = express.Router();
+const User = require('../models/userModel');
+
+// CRUD Operations
+
+// View/Read
+router.get('/user', async (req, res) => {
+    try {
+        // Fetching all user data
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+
+// Create
+router.post('/user', async (req, res) => {
+    try {
+        const { name, age, weight } = req.body;
+        // Creating a new user instance
+        const newUser = new User({ name, age, weight });
+        // Saving the instance to the database
+        await newUser.save();
+        res.status(201).json({
+            success: true,
+            message: 'User created successfully',
+            data: newUser,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+// update
+router.put('/user/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, age, weight } = req.body;
+
+    try {
+        // Updating user and returning the updated document
+        const updatedUser = await User.findByIdAndUpdate(
+            id,
+            { name, age, weight },
+            { new: true } // Ensures the updated document is returned
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({
+                success: false,
+                message: "User Not Found",
+            });
+        }
+
+        // User updated successfully
+        res.status(200).json({
+            success: true,
+            user: updatedUser,
+        });
+    } catch (err) {
+        // Internal server error
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+});
+
+/// delete 
+router.delete('/user/:id', async(req,res)=>{
+    // req.params is used to find our the id from the body 
+    const {id}=req.params;
+    try{
+        const deletedUser=await User.findByIdAndDelete(id);
+        if(!deletedUser){
+            res.json({
+                message:"user Not found"
+            })
+        }
+        res.status(200).json({
+            success: true,
+            user:deletedUser,
+        });
+        }catch (err) {
+        // Internal server error
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+})
+
+module.exports = router;
+
+```
+### Now see the postman success status 
+![Screenshot 2024-12-28 162049](https://github.com/user-attachments/assets/3c16ed39-0117-44c5-9045-f01b27f92080)
+
+### Now go and see the atlas database data of akshat is deleted 
+### see this
+
+![Screenshot 2024-12-28 162348](https://github.com/user-attachments/assets/0ba00694-684a-482e-8071-6931857ef226)
 
 
 
