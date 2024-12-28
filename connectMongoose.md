@@ -1,3 +1,44 @@
 #  This tutorial will help to connect node js with mongodb using mongoose 
 ## means server-> Database ko communicate karne ke liye jiska use karte hai uska naam hai mongoose 
-## Great article on this -> https://www.topcoder.com/thrive/articles/how-to-connect-mongodb-to-node-js-using-mongoose
+## Great article on this ->
+https://www.topcoder.com/thrive/articles/how-to-connect-mongodb-to-node-js-using-mongoose
+# 1 -> First setup backend using 
+https://github.com/guptaravimp/Backend_Docs_/blob/main/Setup_Into.md
+## Now install some more package :
+```
+npm i mongoose
+npm i dotenv
+```
+# 2-> create a db.js folder inside the project like index.js 
+## write this code to connect with mongodb 
+### Importing
+```
+const mongoose = require('mongoose');
+```
+### connection code 
+#### in place of url use your connection string od mongodb 
+connection string : ```mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/```
+```
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(`mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/`, {
+        useNewUrlParser: true,
+      });
+      console.log(`MongoDB Connected`);
+    } catch (error) {
+      console.error(error.message);
+      process.exit(1);
+    }
+  }
+  module.exports = connectDB;
+```
+# 3-> Now let we want to use this db in any file like :
+## let import in index.js to use this 
+```
+const connectDB = require('./db');
+```
+## let connectdb
+```
+//connect to database
+connectDB();
+```
