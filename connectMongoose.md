@@ -165,7 +165,44 @@ const UserModel = model("test", UserSchema)
 
 module.exports = UserModel
 ```
+# Now let create Routes folder to perform CRUD operation 
+## first create a routes folder inside backend project 
+## inside this let create a file named as (app.js)
+## Now to perorm these operations first import the (UserModel.js)
+## import express and router also
+```
+const express=require('express')
+const router=express.Router();
+const User=require('../models/userModel')
+```
+## Now let first we fetch the and read the all user present in (Usermodel.js)
+
+```
+const express=require('express')
+const router=express.Router();
+const User=require('../models/userModel')
 
 
+// routes
+
+
+// Crud Operations
+
+
+//view/Read
+router.get('/user',async(req,res)=>{
+         try{
+            // fetching all the data of user in User 
+            const users=await User.find();
+            res.status(200).json(users);
+         }
+         catch(err){
+            res.status(500).json({
+                success:false,
+                message:err.message
+            })
+         }
+})
+```
 
 
