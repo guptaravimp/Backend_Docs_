@@ -12,3 +12,18 @@ MONGODB_URI=mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mon
 ```
 MONGODB_URI=mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/ecommerceDB
 ```
+
+# 2. Now lets add our port in .env file also 
+## go to .env file write 
+```
+PORT=3000
+```
+## Now import this in index.js where we use this port 
+```
+const dotenv=require('dotenv')
+
+// load env config 
+dotenv.config();
+const port = process.env.PORT
+```
+
