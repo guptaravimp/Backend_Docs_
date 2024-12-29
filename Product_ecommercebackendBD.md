@@ -150,5 +150,19 @@ http://localhost:3000/api/products
 
 ![Screenshot 2024-12-29 124506](https://github.com/user-attachments/assets/ff4f1c9d-00a9-4994-b89e-be4d4e93ab87)
 
+## but something error beause it should have to returer
+## there is no products so add the logic that when it is empty also tghen should returen there is no producst 
+## inside controller file 
+ ```
+if(!allProduct || allProduct.length===0){
+            res.json({
+                message:"There is no product"
+            })
+        }
+```
+##   Now see the corrected outcome on postman 
+
+![Screenshot 2024-12-29 124844](https://github.com/user-attachments/assets/ce184d91-a03b-4d7f-a8e8-059581599897)
+
 
 
