@@ -317,6 +317,22 @@ router.put('/products/:id',updatedProduct );
 ## See this get method 
 ![Screenshot 2024-12-29 184118](https://github.com/user-attachments/assets/aa637a6c-28b6-4dbf-997f-ff5b66a24c87)
 
+# 14 Now same as if we run logic of createProduct controller
+## Go to productRoutes.js and add the login and import the creatproduct also 
+```
+const {getProducts, updatedProduct, createProduct}=require('../controllers/productController')
+
+/// create new product detail 
+router.post('/products',createProduct );
+```
+## see this is successfully added and created new productas 
+
+![Screenshot 2024-12-29 184915](https://github.com/user-attachments/assets/ad823021-c00b-4bc4-a514-1dca7db69181)
+
+
+# 15 . Now lets implement the logic of delete method 
+
+
 
 
 
