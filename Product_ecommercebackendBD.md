@@ -310,6 +310,13 @@ router.put('/products/:id',updatedProduct );
 
 ![Screenshot 2024-12-29 132727](https://github.com/user-attachments/assets/56336397-e84a-4dfa-a1a0-e05200e40a1d)
 
+## You can see that data is succesfully updated 
+
+![Screenshot 2024-12-29 183842](https://github.com/user-attachments/assets/e5d577a9-6bc8-4c0d-afa5-804138ecc6f9)
+
+## See this get method 
+![Screenshot 2024-12-29 184118](https://github.com/user-attachments/assets/aa637a6c-28b6-4dbf-997f-ff5b66a24c87)
+
 
 
 
