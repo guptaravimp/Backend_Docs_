@@ -165,4 +165,17 @@ if(!allProduct || allProduct.length===0){
 ![Screenshot 2024-12-29 124844](https://github.com/user-attachments/assets/ce184d91-a03b-4d7f-a8e8-059581599897)
 
 
+# 9. Now let insert some data into this database from mongodb atlas or compass 
+## brush and chappal see this 
+
+
+![Screenshot 2024-12-29 125645](https://github.com/user-attachments/assets/f5b14189-815a-42ca-b5f2-fbfca25b34b3)
+
+# 10. Now you can see the get request in postman see all the data 
+
+![Screenshot 2024-12-29 125813](https://github.com/user-attachments/assets/5c21150f-a9ee-4e04-8aa0-3d88631b4798)
+
+
+
+
 
