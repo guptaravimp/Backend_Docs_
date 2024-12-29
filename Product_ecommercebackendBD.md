@@ -330,9 +330,147 @@ router.post('/products',createProduct );
 ![Screenshot 2024-12-29 184915](https://github.com/user-attachments/assets/ad823021-c00b-4bc4-a514-1dca7db69181)
 
 
-# 15 . Now lets implement the logic of delete method 
+# 15 . Now lets implement the logic of delete method `
+## Now add the logic of delete inside the (productController.js)
+```
+const deleteProduct=async (req,res)=>{
+    try{
+        const {id}=req.params;
+        const deletedProduct=await Product.findByIdAndDelete(id)
+
+        if(!deletedProduct){
+            res.json({
+                message:"product not found"
+            })
+        }
+
+        res.status(200).json({
+             success:true,
+             Product:deletedProduct,
+             message:"deleted succesfully "
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            success:false,
+           message:"Internal server error "
+        })
+       }
+}
+```
+## Now export it also see the conplete code of productController.js 
+```
+const Product=require('../models/productModel')
 
 
+// business logic
+const getProducts=async(req,res)=>{
+    try{
+        // fetching all the products from product db collections 
+        const allProduct=await Product.find();
+        if(!allProduct || allProduct.length===0){
+            res.json({
+                message:"There is no product"
+            })
+        }
+        // if we have product greate than  1 
+        res.status(200).json({
+            success:true,
+            products:allProduct,
+        })
+      
+    }
+    catch(err){
+     res.status(500).json({
+        success:false,
+        message:"Internal server error "
+     })
+    }
+}
+
+
+
+
+/// create product logic 
+const createProduct=async (req,res)=>{
+    try{
+         const {name,price,description,category}=req.body
+         const newProduct=new Product({name,price,description,category});
+         await newProduct.save();
+         res.status(200).json({
+            success:true,
+            product:newProduct
+
+         })
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+
+
+// update controller 
+const updatedProduct=async (req,res)=>{
+    try{
+        const {id}=req.params;
+        // kuyuki abhi ham body se hi data ko bhej rahe hai baa me apne admin se lekar add kar denge 
+        const {name,price, description,category}=req.body;
+        const updatedproduct=await Product.findByIdAndUpdate(id,{name,price,description,category},{new:true})
+        res.status(200).json({
+            product:updatedproduct
+        })
+
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+
+/// delete product
+const deletedProduct=async (req,res)=>{
+    try{
+        const {id}=req.params;
+        const deletedProduct=await Product.findByIdAndDelete(id)
+
+        if(!deletedProduct){
+            res.json({
+                message:"product not found"
+            })
+        }
+
+        res.status(200).json({
+             success:true,
+             Product:deletedProduct,
+             message:"deleted succesfully "
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            success:false,
+           message:"Internal server error "
+        })
+       }
+}
+module.exports={getProducts,createProduct, updatedProduct, deletedProduct}
+```
+## Now lets lets import this inside the product routes to create a route of delete product 
+## go to (productRoutes.js)
+
+```
+const {getProducts, updatedProduct, createProduct, deletedProduct}=require('../controllers/productController')
+router.delete('/product/:id',deletedProduct)
+```
+
+# 16. Now go to postman and hit the request of delete
+## for some specific id lets for brush2
+
+![Screenshot 2024-12-29 191300](https://github.com/user-attachments/assets/ae0e3489-796e-488b-aad5-5c88cc0d7402)
 
 
 
