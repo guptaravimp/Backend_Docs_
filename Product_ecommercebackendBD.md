@@ -136,6 +136,19 @@ app.use('api',productroute)
 /// -> /api/products
 
 ```
+# 7. Now go to Mongodb atlas or Mongodb compass beacuse we connected previously our mongodb atlas to mongodb compass 
+## Now see that ecommerceDB named database is created and product collection is also created 
+
+![Screenshot 2024-12-29 123842](https://github.com/user-attachments/assets/2bbc91a0-aa9a-41d1-84a0-a1f2b70e4d2b)
+
+# 8. Now go to the Postman and check the routes of product
+
+```
+http://localhost:3000/api/products
+```
+## as yet it is empty so ypu can see this 
+
+![Screenshot 2024-12-29 124506](https://github.com/user-attachments/assets/ff4f1c9d-00a9-4994-b89e-be4d4e93ab87)
 
 
 
