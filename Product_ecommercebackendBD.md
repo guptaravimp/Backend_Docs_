@@ -306,6 +306,13 @@ const {getProducts, updatedProduct, createProduct}=require('../controllers/produ
 router.put('/products/:id',updatedProduct );
 ```
 
+# 13. Now let update the data of brush from postman 
+
+![Screenshot 2024-12-29 132727](https://github.com/user-attachments/assets/56336397-e84a-4dfa-a1a0-e05200e40a1d)
+
+
+
+
 
 
 
