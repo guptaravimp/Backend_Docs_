@@ -175,6 +175,138 @@ if(!allProduct || allProduct.length===0){
 
 ![Screenshot 2024-12-29 125813](https://github.com/user-attachments/assets/5c21150f-a9ee-4e04-8aa0-3d88631b4798)
 
+# 11. Now lets implement the logic of (create, update and delete) method in our controller file 
+
+```
+/// create product logic 
+const createProduct=async (req,res)=>{
+    try{
+         const {name,price,description,category}=req.body
+         const newProduct=new Product({name,price,description,category});
+         await newProduct.save();
+         res.status(200).json({
+            success:true,
+            product:newProduct
+
+         })
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+
+
+// update controller 
+const updateProduct=async (req,res)=>{
+    try{
+        const {id}=req.params;
+        // kuyuki abhi ham body se hi data ko bhej rahe hai baa me apne admin se lekar add kar denge 
+        const {name,price, description,category}=req.body;
+        const updatedproduct=await Product.findByIdAndUpdate(id,{name,price,description,category},{new:true})
+        res.status(200).json({
+            product:updatedproduct
+        })
+
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+```
+
+## complete filr looks like this named is (productController.js)
+
+```
+const Product=require('../models/productModel')
+
+
+// business logic
+const getProducts=async(req,res)=>{
+    try{
+        // fetching all the products from product db collections 
+        const allProduct=await Product.find();
+        if(!allProduct || allProduct.length===0){
+            res.json({
+                message:"There is no product"
+            })
+        }
+        // if we have product greate than  1 
+        res.status(200).json({
+            success:true,
+            products:allProduct,
+        })
+      
+    }
+    catch(err){
+     res.status(500).json({
+        success:false,
+        message:"Internal server error "
+     })
+    }
+}
+
+
+
+
+/// create product logic 
+const createProduct=async (req,res)=>{
+    try{
+         const {name,price,description,category}=req.body
+         const newProduct=new Product({name,price,description,category});
+         await newProduct.save();
+         res.status(200).json({
+            success:true,
+            product:newProduct
+
+         })
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+
+
+// update controller 
+const updateProduct=async (req,res)=>{
+    try{
+        const {id}=req.params;
+        // kuyuki abhi ham body se hi data ko bhej rahe hai baa me apne admin se lekar add kar denge 
+        const {name,price, description,category}=req.body;
+        const updatedproduct=await Product.findByIdAndUpdate(id,{name,price,description,category},{new:true})
+        res.status(200).json({
+            product:updatedproduct
+        })
+
+    }
+    catch(err){
+        res.status(500).json({
+           success:false,
+           message:"Internal server error "
+        })
+       }
+}
+module.exports={getProducts,createProduct, updatedProduct}
+```
+# 12. Now add this routes in route file 
+## first import this in productRoutes.js file 
+
+```
+const {getProducts, updatedProduct, createProduct}=require('../controllers/productController')
+/// creating product
+router.put('/products/:id',createProduct );
+/// updating product detail 
+router.update('/products/:id',updatedProduct );
+```
+
 
 
 
