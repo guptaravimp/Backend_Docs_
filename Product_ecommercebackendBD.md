@@ -468,9 +468,14 @@ router.delete('/product/:id',deletedProduct)
 ```
 
 # 16. Now go to postman and hit the request of delete
-## for some specific id lets for brush2
+## for some specific id lets for brush3
 
 ![Screenshot 2024-12-29 191300](https://github.com/user-attachments/assets/ae0e3489-796e-488b-aad5-5c88cc0d7402)
+
+## see this now only 2 reamining 
+
+![image](https://github.com/user-attachments/assets/f2d96338-db60-4bf8-8668-55344e820676)
+
 
 
 
