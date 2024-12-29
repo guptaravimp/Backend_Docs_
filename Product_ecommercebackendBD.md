@@ -301,10 +301,9 @@ module.exports={getProducts,createProduct, updatedProduct}
 
 ```
 const {getProducts, updatedProduct, createProduct}=require('../controllers/productController')
-/// creating product
-router.put('/products/:id',createProduct );
+
 /// updating product detail 
-router.update('/products/:id',updatedProduct );
+router.put('/products/:id',updatedProduct );
 ```
 
 
