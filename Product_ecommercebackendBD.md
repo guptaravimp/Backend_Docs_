@@ -68,8 +68,74 @@ const {
 module.exports = ProductModel
 ```
 # 4. Now let crearte a folder inside the backend project named as ( controller )for the logics
+
 ## see the project structure 
+## In controllers file we write all the business logic 
 
 ![Screenshot 2024-12-29 121510](https://github.com/user-attachments/assets/787a1c84-965a-4d54-8101-9dc7db81f279)
+
+## create file named productController.js inside this controllers flder 
+## and write the below code inside this file 
+
+```
+const Product=require('../models/productModel')
+
+
+// business logic
+const getProduct=async(req,res)=>{
+    try{
+        // fetching all the products from product db collections 
+        const allProduct=Product.find();
+        if(!allProduct){
+            res.json({
+                message:"There is no product"
+            })
+        }
+        // if we have product greate than  1 
+        res.status(200).json({
+            success:true,
+            products:allProduct,
+        })
+      
+    }
+    catch(err){
+     res.status(500).json({
+        success:false,
+        message:"Internal server error "
+     })
+    }
+}
+```
+# 5-> Now create a routes folder and routes file we want to access these data 
+## create folder anmed as routes and create a file name inside anmed as (productRoutes.js)
+
+```
+const express = require('express');
+const router = express.Router();
+const {getProduct}=require('../controllers/productController')
+// CRUD Operations
+
+// View/Read
+// frontend se call aai ek get request for this path 
+// get request hit hui and kaha es controller pr chale jao 
+// aur yr dekhoge controller to ye ssare product ko res me send kiya hai 
+router.get('/products',getProduct );
+
+
+// Create
+
+
+module.exports = router;
+
+```
+
+# 6. Now import this mount this isnside index.js file 
+```
+const productroute=require('./routes/productRoutes')
+app.use('api',productroute)
+/// -> /api/products
+
+```
+
 
 
