@@ -26,4 +26,50 @@ const dotenv=require('dotenv')
 dotenv.config();
 const port = process.env.PORT
 ```
+# 3. Create a models 
+## create a models folder inside backend project and create a file names as  (productModel.js)
+## write the model and schema of the product model 
+
+```
+
+const {
+    Schema,
+    model
+  } = require("mongoose");
+  
+
+  const ProductSchema = new Schema({
+    name: {
+      type: String,
+      required: true,
+      maxlength: 50
+    },
+    price: {
+        type: Number,
+        required: true,
+    },
+      description: {
+        type: string,
+        required: true,
+    },
+      category: {
+        type: string,
+        required: true,
+    },
+    
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  });
+    // database json name product
+  const ProductModel = model("product", ProductSchema)
+
+module.exports = ProductModel
+```
+# 4. Now let crearte a folder inside the backend project named as ( controller )for the logics
+## see the project structure 
+
+![Screenshot 2024-12-29 121510](https://github.com/user-attachments/assets/787a1c84-965a-4d54-8101-9dc7db81f279)
+
 
