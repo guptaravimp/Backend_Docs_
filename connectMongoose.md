@@ -57,7 +57,7 @@ app.use(express.json());
 ## create a file name .env
 #### let we secure our connection string inside .env
 ```
-MONGODB_URI=mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/
+MONGODB_URI='mongodb+srv://techravibusiness:0GstLwwIVhqIVOe1@clusterone.t9ol1.mongodb.net/db_name'
 ```
 ## Now go to file where you use this url and change it to \
 ## here db.js file
