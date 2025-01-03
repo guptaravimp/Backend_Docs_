@@ -9,8 +9,9 @@ https://github.com/guptaravimp/Backend_Docs_/blob/main/Setup_Into.md
 npm i mongoose
 npm i dotenv
 ```
-# 2-> create a db.js folder inside the project like index.js 
-## write this code to connect with mongodb 
+# 2-> create a config folder inside the backend folder 
+## create a Database.js file inside config folder
+## write this code inside this file 
 ### Importing
 ```
 const mongoose = require('mongoose');
@@ -32,10 +33,10 @@ const connectDB = async () => {
   }
   module.exports = connectDB;
 ```
-# 3-> Now let we want to use this db in any file like :
+# 3-> Now lets connect it to server file ie. index.js :
 ## let import in index.js to use this 
 ```
-const connectDB = require('./db');
+const connectDB = require('./config/Database');
 ```
 ## let connectdb
 ```
